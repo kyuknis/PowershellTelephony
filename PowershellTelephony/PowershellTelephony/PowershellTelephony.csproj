@@ -7,8 +7,8 @@
     <ProjectGuid>{84E66350-5596-4469-AE7A-FFFE3BD58D68}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PowerShellModules</RootNamespace>
-    <AssemblyName>PowerShellModules</AssemblyName>
+    <RootNamespace>PowershellTelephony</RootNamespace>
+    <AssemblyName>PowershellTelephony</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
