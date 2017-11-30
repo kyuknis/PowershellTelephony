@@ -19,14 +19,23 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+using PowershellTelephony;
+
 namespace PowershellTelephony.Test
 {
     [TestClass]
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void CanCreateTwilioConnection()
         {
+
+        }
+
+        [TestMethod]
+        public void CanSendSmsMessage()
+        {
+
         }
     }
 }

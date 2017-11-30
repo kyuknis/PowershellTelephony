@@ -22,7 +22,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PowerShellModules.Models
+namespace PowershellTelephony.Models
 {
     public class TwilioMessage
     {

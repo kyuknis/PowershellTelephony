@@ -27,9 +27,9 @@ using Twilio;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Types;
 
-using PowerShellModules.Models;
+using PowershellTelephony.Models;
 
-namespace PowerShellModules
+namespace PowershellTelephony
 {
     [Cmdlet(VerbsCommon.New, "SmsMessage")]
     [OutputType(typeof(TwilioMessage))]
