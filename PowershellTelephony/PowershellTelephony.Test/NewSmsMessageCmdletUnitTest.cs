@@ -24,7 +24,7 @@ using PowershellTelephony;
 namespace PowershellTelephony.Test
 {
     [TestClass]
-    public class UnitTest1
+    public class NewSmsMessageCmdletUnitTest
     {
         [TestMethod]
         public void CanCreateTwilioConnection()

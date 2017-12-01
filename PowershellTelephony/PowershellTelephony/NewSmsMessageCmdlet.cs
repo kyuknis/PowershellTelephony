@@ -33,7 +33,7 @@ namespace PowershellTelephony
 {
     [Cmdlet(VerbsCommon.New, "SmsMessage")]
     [OutputType(typeof(TwilioMessage))]
-    public class NewSmsMessageCmdlet: Cmdlet
+    public class NewSmsMessageCmdlet : Cmdlet
     {
         [Parameter]
         public string AccountSid { get; set; }
@@ -50,15 +50,16 @@ namespace PowershellTelephony
         [Parameter(ValueFromPipeline = true)]
         public string Body { get; set; }
 
-
         protected override void BeginProcessing()
         {
             base.BeginProcessing();
+            this.CreateTwilioClient();
         }
 
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            this.SendSmsMessage();
         }
 
         protected override void EndProcessing()
@@ -69,6 +70,19 @@ namespace PowershellTelephony
         protected override void StopProcessing()
         {
             base.StopProcessing();
+        }
+
+        protected void CreateTwilioClient()
+        {
+            TwilioClient.Init(this.AccountSid, this.AuthToken);
+        }
+
+        protected void SendSmsMessage()
+        {
+            var messageResource = MessageResource.Create(
+                to: new PhoneNumber(this.Recipient),
+                from: new PhoneNumber(this.Sender),
+                body: this.Body);
         }
     }
 }
