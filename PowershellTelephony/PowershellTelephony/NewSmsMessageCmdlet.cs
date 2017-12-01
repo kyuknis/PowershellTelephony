@@ -53,13 +53,14 @@ namespace PowershellTelephony
         protected override void BeginProcessing()
         {
             base.BeginProcessing();
-            this.CreateTwilioClient();
+            this.CreateTwilioClient(this.AccountSid, this.AuthToken);
         }
 
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            this.SendSmsMessage();
+            this.SendSmsMessage(this.Recipient, this.Sender, this.Body);
+            Console.WriteLine(message);
         }
 
         protected override void EndProcessing()
@@ -72,17 +73,17 @@ namespace PowershellTelephony
             base.StopProcessing();
         }
 
-        protected void CreateTwilioClient()
+        public void CreateTwilioClient(string AccountSid, string AuthToken)
         {
-            TwilioClient.Init(this.AccountSid, this.AuthToken);
+            TwilioClient.Init(AccountSid, AuthToken);
         }
 
-        protected void SendSmsMessage()
+        public void SendSmsMessage(string Recipient, string Sender, string Body = "")
         {
-            var messageResource = MessageResource.Create(
-                to: new PhoneNumber(this.Recipient),
-                from: new PhoneNumber(this.Sender),
-                body: this.Body);
+            var message = MessageResource.Create(
+                to: new PhoneNumber(Recipient),
+                from: new PhoneNumber(Sender),
+                body: Body);
         }
     }
 }

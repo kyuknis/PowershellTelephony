@@ -27,15 +27,17 @@ namespace PowershellTelephony.Test
     public class NewSmsMessageCmdletUnitTest
     {
         [TestMethod]
-        public void CanCreateTwilioConnection()
+        public void SendSmsMessage()
         {
+            string TestTwilioAccountSid = @"";
+            string TestTwilioAuthToken = @"";
+            string Recepient = @"";
+            string Sender = @"";
+            string Body = String.Format("Test on {0}", DateTime.Now);
 
-        }
-
-        [TestMethod]
-        public void CanSendSmsMessage()
-        {
-
+            NewSmsMessageCmdlet Cmdlet = new NewSmsMessageCmdlet();
+            Cmdlet.CreateTwilioClient(TestTwilioAccountSid, TestTwilioAuthToken);
+            Cmdlet.SendSmsMessage(Recepient, Sender, Body);
         }
     }
 }
