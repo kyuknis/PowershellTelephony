@@ -60,7 +60,6 @@ namespace PowershellTelephony
         {
             base.ProcessRecord();
             this.SendSmsMessage(this.Recipient, this.Sender, this.Body);
-            Console.WriteLine(message);
         }
 
         protected override void EndProcessing()
