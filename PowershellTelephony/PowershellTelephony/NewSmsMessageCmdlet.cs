@@ -38,7 +38,7 @@ namespace PowershellTelephony
         [Parameter]
         public string AccountSid { get; set; }
 
-        [Parameter(ValueFromPipeline = true)]
+        [Parameter]
         public string AuthToken { get; set; }
 
         [Parameter]
